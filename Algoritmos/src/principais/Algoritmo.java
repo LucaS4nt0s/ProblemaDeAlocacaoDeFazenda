@@ -30,8 +30,6 @@ public class Algoritmo {
     }
 
     public int custoMinimo(){
-        custoMinimo = 0;
-
-        return custoMinimo;
+        return 0;
     }
 }
