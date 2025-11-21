@@ -3,30 +3,30 @@ package principais;
 import java.util.ArrayList;
 import auxiliares.FileManager;
 
-public final class Terrenos {
-    private final ArrayList<Terreno> listaTerrenos;
-    private int quantidadeTerrenos;
+public final class Terrenos { // classe para representar uma coleção de terrenos
+    private final ArrayList<Terreno> listaTerrenos; // lista para armazenar os terrenos
+    private int quantidadeTerrenos; // quantidade de terrenos na coleção
 
-    public Terrenos() {
-        this.listaTerrenos = new ArrayList<>();
-        FileManager fileManager = new FileManager();
-        ArrayList<String> linhas = fileManager.stringReader("././entrada/terrenos_50k.txt");
+    public Terrenos() { // construtor da classe Terrenos
+        this.listaTerrenos = new ArrayList<>(); // inicializa a lista de terrenos
+        FileManager fileManager = new FileManager(); // cria um objeto FileManager para ler o arquivo de entrada
+        ArrayList<String> linhas = fileManager.stringReader("././entrada/terrenos.txt"); // lê as linhas do arquivo de entrada (Caminho relativo ao src)
 
         try {
-            setQuantidadeTerrenos(Integer.parseInt(linhas.get(0)));
+            setQuantidadeTerrenos(Integer.parseInt(linhas.get(0))); // define a quantidade de terrenos a partir da primeira linha do arquivo
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage()); // exibe a mensagem de erro caso a quantidade de terrenos seja inválida
         }
         
-        for (int i = 1; i <= this.quantidadeTerrenos; i++) {
-            String[] partes = linhas.get(i).trim().split(" ");
-            int largura = Integer.parseInt(partes[0]);
-            int comprimento = Integer.parseInt(partes[1]);
-            Terreno terreno = new Terreno(largura, comprimento);
-            this.listaTerrenos.add(terreno);
+        for (int i = 1; i <= this.quantidadeTerrenos; i++) { // percorre as linhas do arquivo para ler os terrenos
+            String[] partes = linhas.get(i).trim().split(" "); // divide a linha em largura e comprimento
+            int largura = Integer.parseInt(partes[0]); // obtém a largura do terreno
+            int comprimento = Integer.parseInt(partes[1]); // obtém o comprimento do terreno
+            Terreno terreno = new Terreno(largura, comprimento); // cria um novo objeto Terreno
+            this.listaTerrenos.add(terreno); // adiciona o terreno à lista
         } 
 
-        ordenarTerrenosPorLargura();
+        ordenarTerrenosPorLargura(); // ordena os terrenos por largura crescente e comprimento decrescente
     }
 
     public void ordenarTerrenosPorLargura() {
@@ -35,14 +35,14 @@ public final class Terrenos {
     }
 
     public ArrayList<Terreno> getListaTerrenos() {
-        return listaTerrenos;
+        return listaTerrenos; // retorna a lista de terrenos
     }
 
     public int getQuantidadeTerrenos() {
-        return quantidadeTerrenos;
+        return quantidadeTerrenos; // retorna a quantidade de terrenos
     }
 
-    public void setQuantidadeTerrenos(int quantidadeTerrenos) throws Exception {
+    private void setQuantidadeTerrenos(int quantidadeTerrenos) throws Exception { // define a quantidade de terrenos com validação (usada no construtor)
         if (quantidadeTerrenos < 1) {
             throw new Exception("Quantidade de terrenos deve ser maior ou igual a 1.");
         }
