@@ -6,11 +6,12 @@ import auxiliares.FileManager;
 public final class Terrenos { // classe para representar uma coleção de terrenos
     private final ArrayList<Terreno> listaTerrenos; // lista para armazenar os terrenos
     private int quantidadeTerrenos; // quantidade de terrenos na coleção
+    private final String path = "././entrada/terrenos_pior_caso.txt"; // caminho do arquivo de entrada (Caminho relativo ao src)
 
     public Terrenos() { // construtor da classe Terrenos
         this.listaTerrenos = new ArrayList<>(); // inicializa a lista de terrenos
         FileManager fileManager = new FileManager(); // cria um objeto FileManager para ler o arquivo de entrada
-        ArrayList<String> linhas = fileManager.stringReader("././entrada/terrenos.txt"); // lê as linhas do arquivo de entrada (Caminho relativo ao src)
+        ArrayList<String> linhas = fileManager.stringReader(this.path); // lê as linhas do arquivo de entrada (Caminho relativo ao src)
 
         try {
             setQuantidadeTerrenos(Integer.parseInt(linhas.get(0))); // define a quantidade de terrenos a partir da primeira linha do arquivo
