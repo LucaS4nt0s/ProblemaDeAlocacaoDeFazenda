@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
 
-public class GeradorTeste { // classe gerada com IA apenas para gerar o arquivo de testes com 50.000 terrenos aleatórios
+public class GeradorTeste { // classe para gerar o arquivo de testes com 50.000 terrenos aleatórios
 
     public static void main(String[] args) {
         // Configurações
