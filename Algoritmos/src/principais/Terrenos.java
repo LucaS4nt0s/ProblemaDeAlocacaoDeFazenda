@@ -10,7 +10,7 @@ public final class Terrenos {
     public Terrenos() {
         this.listaTerrenos = new ArrayList<>();
         FileManager fileManager = new FileManager();
-        ArrayList<String> linhas = fileManager.stringReader("././entrada/terrenos.txt");
+        ArrayList<String> linhas = fileManager.stringReader("././entrada/terrenos_50k.txt");
 
         try {
             setQuantidadeTerrenos(Integer.parseInt(linhas.get(0)));
@@ -20,9 +20,9 @@ public final class Terrenos {
         
         for (int i = 1; i <= this.quantidadeTerrenos; i++) {
             String[] partes = linhas.get(i).trim().split(" ");
-            int comprimento = Integer.parseInt(partes[0]);
-            int largura = Integer.parseInt(partes[1]);
-            Terreno terreno = new Terreno(comprimento, largura);
+            int largura = Integer.parseInt(partes[0]);
+            int comprimento = Integer.parseInt(partes[1]);
+            Terreno terreno = new Terreno(largura, comprimento);
             this.listaTerrenos.add(terreno);
         } 
 

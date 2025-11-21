@@ -4,7 +4,7 @@ public final class Terreno {
     private int comprimento;
     private int largura;
 
-    public Terreno(int comprimento, int largura) {
+    public Terreno(int largura, int comprimento) {
         try {
             this.setComprimento(comprimento);
             this.setLargura(largura);
