@@ -9,33 +9,30 @@ public class GeradorTeste { // classe gerada com IA apenas para gerar o arquivo 
 
     public static void main(String[] args) {
         // Configurações
-        String caminhoArquivo = "././entrada/terrenos_50k.txt"; // Ajuste o caminho se necessário
-        int quantidadeTerrenos = 50000; // N máximo do problema
-        int valorMaximoDimensao = 1000000; // Dimensão máxima segundo o PDF
+        String caminhoArquivo = "././entrada/terrenos.txt"; // gera o arquivo de entrada (Caminho relativo ao src)
+        int quantidadeTerrenos = 50000; // Quantidade de terrenos a serem gerados
+        int valorMaximoDimensao = 1000000; // Dimensão máxima de cada terreno (largura e comprimento)
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(caminhoArquivo))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(caminhoArquivo))) { // cria um BufferedWriter para escrever no arquivo
             
-            // 1. Escreve a primeira linha (N)
-            writer.write(String.valueOf(quantidadeTerrenos));
-            writer.newLine();
+            writer.write(String.valueOf(quantidadeTerrenos)); // escreve a quantidade de terrenos na primeira linha
+            writer.newLine(); // nova linha
 
-            Random random = new Random();
+            Random random = new Random(); // cria um objeto Random para gerar números aleatórios
 
-            // 2. Gera as 50.000 linhas com valores aleatórios
-            for (int i = 0; i < quantidadeTerrenos; i++) {
-                // random.nextInt(max) gera de 0 a max-1. Somamos 1 para ser de 1 a max.
-                int largura = random.nextInt(valorMaximoDimensao) + 1;
-                int comprimento = random.nextInt(valorMaximoDimensao) + 1;
+            for (int i = 0; i < quantidadeTerrenos; i++) { // gera cada terreno com largura e comprimento aleatórios dentro do limite especificado em quantidadeTerrenos
+                int largura = random.nextInt(valorMaximoDimensao) + 1; // largura aleatória entre 1 e valorMaximoDimensao
+                int comprimento = random.nextInt(valorMaximoDimensao) + 1; // comprimento aleatório entre 1 e valorMaximoDimensao
 
-                writer.write(largura + " " + comprimento);
-                writer.newLine();
+                writer.write(largura + " " + comprimento); // escreve a largura e o comprimento do terreno no arquivo (separados por espaço): "Largura Comprimento"
+                writer.newLine(); // nova linha
             }
 
-            System.out.println("Arquivo gerado com sucesso em: " + caminhoArquivo);
-            System.out.println("Quantidade: " + quantidadeTerrenos);
+            System.out.println("Arquivo gerado com sucesso em: " + caminhoArquivo); // mensagem de sucesso
+            System.out.println("Quantidade: " + quantidadeTerrenos); // exibe a quantidade de terrenos gerados
 
         } catch (IOException e) {
-            System.err.println("Erro ao escrever o arquivo: " + e.getMessage());
+            System.err.println("Erro ao escrever o arquivo: " + e.getMessage()); // mensagem de erro em caso de falha na escrita do arquivo
         }
     }
 }
