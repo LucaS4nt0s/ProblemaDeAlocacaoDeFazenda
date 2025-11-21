@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class GeradorPiorCaso { // classe para gerar o arquivo de pior caso com 50.000 terrenos (gerada com IA)
     public static void main(String[] args) {
-        String caminhoArquivo = "././entrada/terrenos_pior_caso.txt"; // caminho do arquivo de entrada (Caminho relativo ao src)
+        String caminhoArquivo = "././entrada/terrenos.txt"; // caminho do arquivo de entrada (Caminho relativo ao src)
         int quantidade = 50000; // quantidade de terrenos a serem gerados
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(caminhoArquivo))) { // cria um BufferedWriter para escrever no arquivo

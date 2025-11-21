@@ -6,7 +6,7 @@ import auxiliares.FileManager;
 public final class Terrenos { // classe para representar uma coleção de terrenos
     private final ArrayList<Terreno> listaTerrenos; // lista para armazenar os terrenos
     private int quantidadeTerrenos; // quantidade de terrenos na coleção
-    private final String path = "././entrada/terrenos_pior_caso.txt"; // caminho do arquivo de entrada (Caminho relativo ao src)
+    private final String path = "././entrada/terrenos.txt"; // caminho do arquivo de entrada (Caminho relativo ao src)
 
     public Terrenos() { // construtor da classe Terrenos
         this.listaTerrenos = new ArrayList<>(); // inicializa a lista de terrenos
