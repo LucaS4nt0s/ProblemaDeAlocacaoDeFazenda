@@ -59,20 +59,12 @@ Para validar a eficiência, comparou-se a solução otimizada (**CHT**) contra u
 * Entradas geradas aleatoriamente e ordenadas para evitar poda (Pior Caso).
 * Tempos medidos em milissegundos (ms).
 
-| Entrada ($N$) | DP $O(N^2)$ (ms) | CHT $O(N \log N)$ (ms) | Aceleração (Speedup) |
-| :--- | :--- | :--- | :--- |
-| 5.000 | 19 | 13 | 1.5x |
-| 10.000 | 63 | 19 | 3.3x |
-| 25.000 | 333 | 53 | 6.3x |
-| **50.000** | **1.338** | **129** | **10.4x** |
+| Entrada ($N$) | DP $O(N^2)$ (ms) | CHT $O(N \log N)$ (ms) |
+| :--- | :--- | :--- | 
+| 5.000 | 62 | 52 |
+| 10.000 | 141 | 81 |
+| 25.000 | 393 | 119 |
+| **50.000** | **1.338** | **129** |
 
 ### Conclusão dos Testes
 Enquanto o tempo da solução $O(N^2)$ cresce quadraticamente (ao dobrar a entrada, o tempo quadruplica), a solução com **Convex Hull Trick** mantém um crescimento quase linear, provando ser escalável para grandes volumes de dados.
-
----
-
-## 💻 Como Rodar
-
-1. Clone o repositório:
-```bash
-git clone [https://github.com/seu-usuario/seu-repo.git](https://github.com/seu-usuario/seu-repo.git)
